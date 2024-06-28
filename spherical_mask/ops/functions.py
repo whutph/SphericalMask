@@ -1,7 +1,7 @@
 import torch
 from torch.autograd import Function
 
-from . import ops
+
 
 
 class GetMaskIoUOnCluster(Function):
@@ -28,7 +28,7 @@ class GetMaskIoUOnCluster(Function):
         assert proposals_offset.is_contiguous() and proposals_offset.is_cuda
         assert instance_labels.is_contiguous() and instance_labels.is_cuda
         assert instance_pointnum.is_contiguous() and instance_pointnum.is_cuda
-
+        from . import ops
         ops.get_mask_iou_on_cluster(
             proposals_idx, proposals_offset, instance_labels, instance_pointnum, proposals_iou, nInstance, nProposal
         )
@@ -68,7 +68,7 @@ class GetMaskIoUOnPred(Function):
         assert instance_labels.is_contiguous() and instance_labels.is_cuda
         assert instance_pointnum.is_contiguous() and instance_pointnum.is_cuda
         assert mask_scores_sigmoid.is_contiguous() and mask_scores_sigmoid.is_cuda
-
+        from . import ops
         ops.get_mask_iou_on_pred(
             proposals_idx,
             proposals_offset,
@@ -116,7 +116,7 @@ class GetMaskLabel(Function):
         assert proposals_offset.is_contiguous() and proposals_offset.is_cuda
         assert instance_labels.is_contiguous() and instance_labels.is_cuda
         assert instance_cls.is_contiguous() and instance_cls.is_cuda
-
+        from . import ops
         ops.get_mask_label(
             proposals_idx,
             proposals_offset,
@@ -158,7 +158,7 @@ class Voxelization_Idx(Function):
 
         input_map = torch.IntTensor(N).zero_()
         output_map = input_map.new()
-
+        from . import ops
         ops.voxelize_idx(coords, output_coords, input_map, output_map, batchsize, mode)
         return output_coords, input_map, output_map
 
@@ -188,7 +188,7 @@ class Voxelization(Function):
         output_feats = torch.cuda.FloatTensor(M, C).zero_()
 
         ctx.for_backwards = (map_rule, mode, maxActive, N)
-
+        from . import ops
         ops.voxelize_fp(feats, output_feats, map_rule, mode, M, maxActive, C)
         return output_feats
 
