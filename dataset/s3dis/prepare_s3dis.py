@@ -13,7 +13,7 @@ sys.path.append(".")
 
 parser = configargparse.ArgumentParser()
 parser.add_argument(
-    "--data_dir", type=str, default="/root/src/ISBNet/dataset/s3dis/Stanford3dDataset_v1.2_Aligned_Version/", help="Path to the original data"
+    "--data_dir", type=str, default="/home/hao/research/data/s3dis/Stanford3dDataset_v1.2_Aligned_Version/", help="Path to the original data"
 )
 
 S3DIS_SEMANTICS_COLORS = np.array(
@@ -140,7 +140,7 @@ def preprocess_s3dis(data_dir):
     for scene_name in scene_list:
         area = scene_name.split(".")[0]
         name = scene_name.split(".")[1]
-        save_dir = "/root/src/ISBNet/dataset/s3dis/preprocess"
+        save_dir = "/home/hao/research/data/s3dis/preprocess"
         scene_pth = os.path.join(save_dir, f"{area}_{name}_inst_nostuff.pth")
 
         os.makedirs(save_dir, exist_ok=True)

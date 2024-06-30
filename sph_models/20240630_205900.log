@@ -1,3 +1,4 @@
+2024-06-30 20:59:00,532 - INFO - Config:
 model:
   model_name: 'spherical_mask'
   channels: 32
@@ -89,3 +90,6 @@ save_freq: 4
 
 work_dir: './sph_models/'
 pretrain_ckpt: './isbnet_pretrain.pth'  
+2024-06-30 20:59:00,532 - INFO - Distributed: False
+2024-06-30 20:59:01,669 - INFO - Total params: 30770677
+2024-06-30 20:59:01,669 - INFO - Trainable params: 658903

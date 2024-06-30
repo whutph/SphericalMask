@@ -18,7 +18,8 @@ if __name__ == "__main__":
                     "spherical_mask/ops/src/isbnet_ops.cpp",
                     "spherical_mask/ops/src/cuda.cu",
                 ],
-                extra_compile_args={"cxx": ["-g"], "nvcc": ["-O2"]},
+                extra_compile_args={"cxx": ["-g"], "nvcc": ["-O2",
+                "-gencode=arch=compute_80,code=sm_80"]},
             )
         ],
         cmdclass={"build_ext": BuildExtension},

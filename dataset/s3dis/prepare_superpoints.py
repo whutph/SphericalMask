@@ -4,7 +4,7 @@ import torch
 import glob
 
 
-files = sorted(glob.glob("/root/src/ISBNet/dataset/s3dis/learned_superpoint_graph_segmentations/*.npy"))
+files = sorted(glob.glob("/home/hao/research/data/s3dis/learned_superpoint_graph_segmentations/*.npy"))
 
 for file in files:
     chunks = file.split("/")[-1].split(".")
@@ -12,4 +12,4 @@ for file in files:
     room = chunks[1]
 
     spp = np.load(file, allow_pickle=True).item()["segments"]
-    torch.save((spp), f"/root/src/ISBNet/dataset/s3dis/superpoints/{area}_{room}.pth")
+    torch.save((spp), f"/home/hao/research/data/s3dis/superpoints/{area}_{room}.pth")
