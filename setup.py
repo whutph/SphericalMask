@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension
 
 
@@ -8,8 +8,11 @@ if __name__ == "__main__":
         version="1.0",
         description="spherical_mask",
         author="sangyun shin",
-        packages=["spherical_mask"],
+        packages=find_packages(),
         package_data={"spherical_mask.ops": ["*/*.so"]},
+        install_requires=[
+            "pointnet2",  # Add pointnet2 as a dependency
+        ],
         ext_modules=[
             CUDAExtension(
                 name="spherical_mask.ops.ops",

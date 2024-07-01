@@ -4,9 +4,8 @@ plyfile and opencv-python should be installed by pip or other conda channel
 should use cudatoolkit-dev=11.3 and python 3.9
 conda install google-sparsehash -c bioconda
 conda install pytorch-scatter -c pyg
-conda install pytorch-scatter -c pyg
+pip install spconv
 
-add repopath to PYTHONPATH
 ## [CVPR 24] Spherical Mask: Coarse-to-Fine 3D Point Cloud Instance Segmentation with Spherical Representation 
 
 <a href="https://arxiv.org/abs/2312.11269"><img src=docs/sph_mask.jpeg></a>
